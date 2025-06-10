@@ -2,60 +2,55 @@ export class Produto{
 
     private _codigo: number;
     private _nome: string;
+    private _unidade: string;
     private _valor: number;
     private _quantidade: number;
-    private _unidade: string;
 
-    constructor(codigo: number, nome: string, valor: number, quantidade: number, unidade: string){
+    constructor(codigo: number, nome: string, unidade: string, valor: number, quantidade: number){
 
         this._codigo    = codigo;
         this._nome      = nome;
+        this._unidade   = unidade;
         this._valor     = valor;
         this._quantidade = quantidade;
-        this._unidade   = unidade;
+
 
     }
 
-    public get codigo{
+    public get codigo(){
         return this._codigo;
     }
-
     public set codigo(codigo: number){
         this._codigo = codigo;
     }
 
-    public get nome{
+    public get nome(){
         return this._nome;
     }
-
     public set nome(nome: string){
         this._nome = nome;
     }
 
-    public get valor{
-        return this._valor;
-    }
-
-    public set valor(valor: number){
-        this._valor = valor;
-    }
-
-    public get quantidade{
-        return this._quantidade;
-    }
-
-    public set quantidade(quantidade: number){
-        this._quantidade = quantidade;
-    }
-
-    public get unidade{
+    public get unidade(){
         return this._unidade;
     }
-
     public set unidade(unidade: string){
         this._unidade = unidade;
     }
 
+    public get valor(){
+        return this._valor;
+    }
+    public set valor(valor: number){
+        this._valor = valor;
+    }
+
+    public get quantidade(){
+        return this._quantidade;
+    }
+    public set quantidade(quantidade: number){
+        this._quantidade = quantidade;
+    }
 
     public cadastrar(codigo: number, nome: string, valor: number, quantidade: number, unidade: string){
 
