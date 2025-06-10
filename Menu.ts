@@ -25,7 +25,7 @@ export function main(){
         console.log("Digite uma opção do menu: ");
         opcao = readlinesync.questionInt("");
 
-if (opcao == 9) {
+if (opcao == 6) {
             console.log("\nMalunga - Papelaria para sonhar e realizar!");
             sobre();
             process.exit(0);
