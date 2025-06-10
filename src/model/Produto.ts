@@ -6,15 +6,18 @@ export abstract class Produto{
     private _unidade: string;
     private _valor: number;
     private _quantidade: number;
+    private _marca: string;
+    private _tipo: number;
 
-    constructor(codigo: number, nome: string, unidade: string, valor: number, quantidade: number){
+    constructor(codigo: number, nome: string, unidade: string, valor: number, quantidade: number, marca: string, tipo: number){
 
         this._codigo    = codigo;
         this._nome      = nome;
         this._unidade   = unidade;
         this._valor     = valor;
         this._quantidade = quantidade;
-
+        this._marca     = marca;
+        this._tipo     = tipo;
 
     }
 
@@ -53,6 +56,20 @@ export abstract class Produto{
         this._quantidade = quantidade;
     }
 
+    public get marca(){
+        return this._marca;
+    }
+    public set marca(marca: string){
+        this._marca = marca;
+    }
+
+    public get tipo(){
+        return this._tipo;
+    }
+    public set tipo(tipo: number){
+        this._tipo = tipo;
+    }
+
     public cadastrar(codigo: number, nome: string, valor: number, quantidade: number, unidade: string){
 
     }
@@ -65,7 +82,7 @@ export abstract class Produto{
         return true;
     }
 
-    public visualizarProdutos(){
+    public visualizar(){
 
         console.log("\n\n********************");
         console.log("Produtos: ");
@@ -75,6 +92,7 @@ export abstract class Produto{
         console.log("Unidade: " + this._unidade);
         console.log("Valor: " + this._valor);
         console.log("Qtd. Disp.: " + this._quantidade);
+        console.log("Marca: " + this._marca);
 
     }
 
