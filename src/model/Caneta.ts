@@ -18,4 +18,9 @@ export class Caneta extends Produto {
         this._cor = cor;
     }
 
+    public visualizar(): void {
+        super.visualizar();
+        console.log("Cor: " + this.cor);
+    }
+
 }

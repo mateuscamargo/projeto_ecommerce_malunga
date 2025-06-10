@@ -12,14 +12,15 @@ export function main(){
     produtos.cadastrar(can1);
     let can2: Caneta = new Caneta(produtos.gerarCodigo(), 'Caneta especial', 'PCT', 3.30, 24, 'ZIP', 1, 'Colorido');
     produtos.cadastrar(can2);
-    let car1: Caderno = new Caderno(produtos.gerarCodigo(), 'Caderno espiral 10 matérias', 'UN', 26.25, 20, 'TILIBRA', 2, 100);
+    let car1: Caderno = new Caderno(produtos.gerarCodigo(), 'Caderno espiral 10 matérias', 'UN', 26.25, 20, 'TILIBRA', 2, 100, "G");
     produtos.cadastrar(car1);
-    let car2: Caderno = new Caderno(produtos.gerarCodigo(), 'Caderno ben10', 'UN', 36.35, 24, 'MORMAI', 2, 200);
+    let car2: Caderno = new Caderno(produtos.gerarCodigo(), 'Caderno ben10', 'UN', 36.35, 24, 'MORMAI', 2, 200, "G");
     produtos.cadastrar(car2);
 
     let opcao, codigo, valor, quantidade, tipo, numeroFolhas: number;
-    let nome, unidade, cor, marca: string;
+    let nome, unidade, cor, marca, tamanho: string;
     const tiposProdutos = ['Caneta', 'Caderno'];
+    const tamanhoCadernos = ['G', 'M', 'P']
 
     while(true){
         console.log("\n\n\n\n\n\n\n                                      ");
@@ -61,7 +62,7 @@ export function main(){
 
                 console.log("\nDigite o tipo do produto:");
                 tipo = readlinesync.keyInSelect(tiposProdutos, "", {cancel: false}) + 1;
-                
+
                 nome = campoTextoObrigatorio("\nDigite o nome do produto: ");
                 unidade = campoTextoObrigatorio("\nDigite a unidade de medida do produto: ");
 
@@ -83,7 +84,11 @@ export function main(){
                     case 2:
                         console.log("Digite a quantidade de folhas do produto: ");
                         numeroFolhas = readlinesync.questionInt("");
-                        produtos.cadastrar(new Caderno(produtos.gerarCodigo(), nome, unidade, valor, quantidade, marca, tipo, numeroFolhas))
+
+                        const indexTamanho = readlinesync.keyInSelect(tamanhoCadernos, "", {cancel: false}) + 1;
+                        tamanho = tamanhoCadernos[indexTamanho];
+
+                        produtos.cadastrar(new Caderno(produtos.gerarCodigo(), nome, unidade, valor, quantidade, marca, tipo, numeroFolhas, tamanho))
                         break;
                 }
 
@@ -126,7 +131,11 @@ export function main(){
                     case 2:
                         console.log("\nDigite a quantidade de folhas do produto: ");
                         numeroFolhas = readlinesync.questionInt("");
-                        produtos.editar(new Caderno(codigo, nome, unidade, valor, quantidade, marca, tipo,numeroFolhas));
+
+                        const indexTamanho = readlinesync.keyInSelect(tamanhoCadernos, "", {cancel: false}) + 1;
+                        tamanho = tamanhoCadernos[indexTamanho];
+
+                        produtos.editar(new Caderno(codigo, nome, unidade, valor, quantidade, marca, tipo,numeroFolhas, tamanho));
                         break;
                     }
                 } else {
