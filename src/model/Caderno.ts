@@ -1,6 +1,6 @@
 import {Produto} from "./Produto";
 
-class Caderno extends Produto {
+export class Caderno extends Produto {
 
     private _numeroFolhas: number;
     private _marca: string;

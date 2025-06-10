@@ -1,5 +1,7 @@
 import readlinesync = require("readline-sync");
 import {colors} from "./src/util/Colors";
+import {Caneta} from './src/model/Caneta';
+import {Caderno} from './src/model/Caderno';
 
 export function main(){
 
