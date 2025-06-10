@@ -11,7 +11,7 @@ export class ProdutoController implements ProdutoRepository{
     cadastrar(produto: Produto): void {
 
         this.listaProdutos.push(produto);
-        console.log("\nO produto: " + produto.nome + "foi cadastrado com sucesso!");
+        console.log("\nO produto: " + produto.nome + " foi cadastrado com sucesso!");
     }
 
     listarTodos(): void {

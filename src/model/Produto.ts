@@ -70,23 +70,11 @@ export abstract class Produto{
         this._tipo = tipo;
     }
 
-    public cadastrar(codigo: number, nome: string, valor: number, quantidade: number, unidade: string){
-
-    }
-
-    public editar(codigo: number): boolean{
-        return true
-    }
-
-    public deletar(codigo: number): boolean{
-        return true;
-    }
-
     public visualizar(){
 
-        console.log("\n\n********************");
-        console.log("Produtos: ");
-        console.log("********************");
+        console.log("\n\n***************");
+        console.log("Produto: ");
+        console.log("***************");
         console.log("Código: " + this._codigo);
         console.log("Produto: " + this._nome);
         console.log("Unidade: " + this._unidade);

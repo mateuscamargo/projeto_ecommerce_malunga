@@ -22,13 +22,10 @@ export function main(){
     const tiposProdutos = ['Caneta', 'Caderno'];
 
     while(true){
-        console.log("                                      ");
-        console.log("                                      ");
-        console.log("                                      ");
-        console.log("                                      ");
+        console.log("\n\n\n\n\n\n\n                                      ");
         console.log("**************************************");
         console.log("                                      ");
-        console.log("     MALUNGA - SUA PAPELARIA CERTA    ");
+        console.log("      MALUNGA - A PAPELARIA CERTA     ");
         console.log("                                      ");
         console.log("**************************************");
         console.log("                                      ");
@@ -41,11 +38,18 @@ export function main(){
         console.log("                                      ");
         console.log("**************************************");
         console.log("                                      ");
+        
+        try {
+            console.log("Digite uma opção do menu: ");
+            opcao = readlinesync.questionInt("");
+        } catch {
+            console.log("\nEntrada inválida! Use apenas números.");
+            keyPress();
+            continue;
+        }
 
-        console.log("Digite uma opção do menu: ");
-        opcao = readlinesync.questionInt("");
-
-if (opcao == 6) {
+    if (opcao == 6) {
+            console.log("\n*****************************************************");
             console.log("\nMalunga - Papelaria para sonhar e realizar!");
             sobre();
             process.exit(0);
@@ -57,12 +61,9 @@ if (opcao == 6) {
 
                 console.log("\nDigite o tipo do produto:");
                 tipo = readlinesync.keyInSelect(tiposProdutos, "", {cancel: false}) + 1;
-
-                console.log("\nDigite o nome do produto: ");
-                nome = readlinesync.question("");
-
-                console.log("\nDigite a unidade do produto (UN): ");
-                unidade = readlinesync.question("");
+                
+                nome = campoTextoObrigatorio("\nDigite o nome do produto: ");
+                unidade = campoTextoObrigatorio("\nDigite a unidade de medida do produto: ");
 
                 console.log("\nDigite o valor do produto (R$): ");
                 valor = readlinesync.questionFloat("");
@@ -70,8 +71,7 @@ if (opcao == 6) {
                 console.log("\nDigite a quantidade do produto: ");
                 quantidade = readlinesync.questionInt("");
 
-                console.log("\nDigite a marca do produto: ");
-                marca = readlinesync.question("");
+                marca = campoTextoObrigatorio("\nDigite a marca do produto: ");
 
                 switch(tipo){
                     case 1:
@@ -103,32 +103,28 @@ if (opcao == 6) {
 
                 if(produto != null){
 
-                    console.log("\nDigite o nome do produto: ");
-                    nome = readlinesync.question("");
-
-                    console.log("\nDigite a unidade do produto (UN): ");
-                    unidade = readlinesync.question("");
-
+                    nome = campoTextoObrigatorio("\nDigite o nome do produto: ");
+                    unidade = campoTextoObrigatorio("\nDigite a unidade de medida do produto: ");
+                    
                     console.log("\nDigite o valor do produto (R$): ");
                     valor = readlinesync.questionFloat("");
 
                     console.log("\nDigite a quantidade do produto: ");
                     quantidade = readlinesync.questionInt("");
 
-                    console.log("\nDigite a marca do produto: ");
-                    marca = readlinesync.question("");
+                    marca = campoTextoObrigatorio("\nDigite a marca do produto: ");
 
                     tipo = produto.tipo;
 
                     switch(tipo){
                         case 1:
-                        console.log("Digite a cor do produto: ");
+                        console.log("\nDigite a cor do produto: ");
                         cor = readlinesync.question("");
                         produtos.editar(new Caneta(codigo, nome, unidade, valor, quantidade, marca, tipo,cor))
                         break;
 
                     case 2:
-                        console.log("Digite a quantidade de folhas do produto: ");
+                        console.log("\nDigite a quantidade de folhas do produto: ");
                         numeroFolhas = readlinesync.questionInt("");
                         produtos.editar(new Caderno(codigo, nome, unidade, valor, quantidade, marca, tipo,numeroFolhas));
                         break;
@@ -160,7 +156,6 @@ if (opcao == 6) {
                 break;
         }
     }
-
 }
 
 /* Função com os dados da pessoa desenvolvedora */
@@ -175,8 +170,25 @@ export function sobre(): void {
 
 function keyPress(): void {
     console.log(colors.reset, "");
-    console.log("\nPressione uma tecla para continuar...");
+    console.log("\nPressione o <Enter> para continuar...");
     readlinesync.prompt();
+}
+
+function campoTextoObrigatorio(pergunta: string): string{
+    let resposta: string;
+
+    do {
+        console.log(pergunta);
+        resposta = readlinesync.question("")
+
+        if (!resposta || resposta.trim() === "") {
+            console.log("Este campo é obrigatório. Tente novamente.\n");
+        }
+
+    } while(!resposta || resposta.trim() === "");
+
+    return resposta.trim();
+
 }
 
 main();
