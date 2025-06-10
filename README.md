@@ -1,4 +1,4 @@
-# 🛙️ Malunga - Papelaria para Sonhar e Realizar
+# 🛍️ Malunga - Papelaria para Sonhar e Realizar
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Tech](https://img.shields.io/badge/Tech-JavaScript%20FullStack-blue)]()
