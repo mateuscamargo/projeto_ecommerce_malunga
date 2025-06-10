@@ -1,0 +1,27 @@
+{
+  "name": "projeto_ecommerce_malunga",
+  "version": "1.0.0",
+  "description": "Generation - Projeto de finalização do módulo 1 - JavaScript Fulltstack - Turma 07",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateuscamargo/projeto_ecommerce_malunga.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateuscamargo/projeto_ecommerce_malunga/issues"
+  },
+  "homepage": "https://github.com/mateuscamargo/projeto_ecommerce_malunga#readme",
+  "dependencies": {
+    "@types/node": "^24.0.0",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/readline-sync": "^1.4.8"
+  }
+}
