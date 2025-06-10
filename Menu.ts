@@ -76,13 +76,13 @@ export function main(){
 
                 switch(tipo){
                     case 1:
-                        console.log("Digite a cor do produto: ");
+                        console.log("\nDigite a cor do produto: ");
                         cor = readlinesync.question("");
                         produtos.cadastrar(new Caneta(produtos.gerarCodigo(), nome, unidade, valor, quantidade, marca, tipo, cor))
                         break;
 
                     case 2:
-                        console.log("Digite a quantidade de folhas do produto: ");
+                        console.log("\nDigite a quantidade de folhas do produto: ");
                         numeroFolhas = readlinesync.questionInt("");
 
                         const indexTamanho = readlinesync.keyInSelect(tamanhoCadernos, "", {cancel: false}) + 1;
@@ -107,17 +107,17 @@ export function main(){
                 let produto = produtos.buscarNoArray(codigo);
 
                 if(produto != null){
-
-                    nome = campoTextoObrigatorio("\nDigite o nome do produto: ");
-                    unidade = campoTextoObrigatorio("\nDigite a unidade de medida do produto: ");
                     
-                    console.log("\nDigite o valor do produto (R$): ");
+                    nome = campoTextoObrigatorio(`\nDigite o nome do produto: (Cadastro atual: ${produto.nome})`);
+                    unidade = campoTextoObrigatorio(`\nDigite a unidade de medida do produto: (Cadastro atual: ${produto.unidade})`);
+                    
+                    console.log(`\nDigite o valor do produto (R$): (Cadastro atual: ${produto.valor})`);
                     valor = readlinesync.questionFloat("");
 
-                    console.log("\nDigite a quantidade do produto: ");
+                    console.log(`\nDigite a quantidade do produto: (Cadastro atual: ${produto.quantidade})`);
                     quantidade = readlinesync.questionInt("");
 
-                    marca = campoTextoObrigatorio("\nDigite a marca do produto: ");
+                    marca = campoTextoObrigatorio(`\nDigite a marca do produto: (Cadastro atual: ${produto.marca})`);
 
                     tipo = produto.tipo;
 
@@ -178,7 +178,7 @@ export function sobre(): void {
 }
 
 function keyPress(): void {
-    console.log(colors.reset, "");
+    console.log("");
     console.log("\nPressione o <Enter> para continuar...");
     readlinesync.prompt();
 }
